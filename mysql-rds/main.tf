@@ -1,0 +1,22 @@
+module "rds" {
+  source               = "./rds"
+  name                 = var.name
+  storage_size         = var.storage_size
+  storage_type         = var.storage_type
+  engine               = var.engine
+  version_number       = var.version_number
+  class                = var.class
+  parameterGN          = var.parameterGN
+  backup_window        = var.backup_window
+  backup_retention     = var.backup_retention
+  subnet1              = var.subnet1
+  subnet2              = var.subnet2
+  multi_az             = var.multi_az
+  db_identifier        = var.db_identifier
+  db_subnet_group_name = var.db_subnet_group_name
+  port                 = var.port
+  vpc_id               = var.vpc_id
+  db_security_group    = var.db_security_group
+  allowed_sg           = var.allowed_cidr
+  rds_username         = var.rds_username
+}

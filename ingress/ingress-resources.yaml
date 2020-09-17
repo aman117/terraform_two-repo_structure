@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: NAMESPACE
+  name: RESOURCE
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+      - 'DOMAIN'
+      - '*.DOMAIN'
+    secretName: TLSSECRET
+  rules:
+  - host: SUB.DOMAIN
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: SERVICENAME
+          servicePort: SERVICEPORT
